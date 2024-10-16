@@ -106,56 +106,78 @@
         const scrollContainer = document.querySelector('.scroll-container');
         const imagesPerRow = 6;
         const rowCount = 4;
-        const totalImages = imagesPerRow * rowCount;
-
+    
         const ipfsBaseUrl = 'https://ipfs-pic.onani.cn/ri/';
         const verticalDir = 'v/';
         const horizontalDir = 'h/';
+    
+        let verticalImages = [];
+        let horizontalImages = [];
+    
+        async function fetchImageList(dir) {
+    const response = await fetch(`${ipfsBaseUrl}${dir}`);
+    const data = await response.text();
+    const parser = new DOMParser();
+    const htmlDocument = parser.parseFromString(data, 'text/html');
+    const links = Array.from(htmlDocument.querySelectorAll('a'));
 
-        function getRandomImageUrl(isVertical) {
-            const dir = isVertical ? verticalDir : horizontalDir;
-            const randomNum = Math.floor(Math.random() * 1000) + 1; // Assuming there are 1000 images in each directory
-            return `${ipfsBaseUrl}${dir}${randomNum}.webp`;
+    return links
+        .map(link => link.getAttribute('href'))
+        .filter(href => href && href.endsWith('.webp')) // 确保只保留.webp文件
+        .map(href => {
+            const url = new URL(href, ipfsBaseUrl + dir);
+            const filename = url.pathname.split('/').pop(); // 获取文件名
+            // 只保留文件名，没有CID
+            return filename.includes('bafk') ? null : filename; // 过滤CID命名的文件
+        })
+        .filter(filename => filename !== null); // 移除null
+}
+
+    
+        async function initializeImages() {
+            verticalImages = await fetchImageList(verticalDir);
+            horizontalImages = await fetchImageList(horizontalDir);
+            populateImages(true); // Default to vertical images
         }
-
+    
+        function getRandomImageUrl(isVertical) {
+            const images = isVertical ? verticalImages : horizontalImages;
+            const randomIndex = Math.floor(Math.random() * images.length);
+            return `${ipfsBaseUrl}${isVertical ? verticalDir : horizontalDir}${images[randomIndex]}`;
+        }
+    
         function createImageElement(isVertical) {
             const img = document.createElement('img');
             img.src = getRandomImageUrl(isVertical);
             img.alt = "Random Image";
             return img;
         }
-
-        function populateImages() {
+    
+        function populateImages(isVertical) {
             scrollContainer.innerHTML = ''; // Clear existing images
             for (let i = 0; i < rowCount * 2; i++) {
                 const row = document.createElement('div');
                 row.className = 'row';
                 for (let j = 0; j < imagesPerRow; j++) {
-                    row.appendChild(createImageElement(true)); // Default to vertical images
+                    row.appendChild(createImageElement(isVertical)); // Pass the flag for vertical/horizontal
                 }
                 scrollContainer.appendChild(row);
             }
         }
-
-        populateImages();
-
+    
         document.getElementById('verticalBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            populateImages(); // Repopulate with vertical images
+            populateImages(true); // Repopulate with vertical images
         });
-
+    
         document.getElementById('horizontalBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            scrollContainer.innerHTML = ''; // Clear existing images
-            for (let i = 0; i < rowCount * 2; i++) {
-                const row = document.createElement('div');
-                row.className = 'row';
-                for (let j = 0; j < imagesPerRow; j++) {
-                    row.appendChild(createImageElement(false)); // Use horizontal images
-                }
-                scrollContainer.appendChild(row);
-            }
+            populateImages(false); // Use horizontal images
         });
+    
+        // Initialize images on page load
+        initializeImages();
     </script>
+    
 </body>
 </html>
