@@ -97,8 +97,8 @@
         <h1>欢迎来到随机图站点</h1>
         <p>这是一个 Onani 的随机图站点，使用 IPFS 服务。<br> 为了便于传输，使用了WEBP压缩技术。<br>  <b>特别鸣谢：锦瑟、瑞希</b>~</p>
         <div>
-            <a href="/v.html" class="btn" id="verticalBtn">竖屏随机图</a>
-            <a href="/h.html" class="btn" id="horizontalBtn">横屏随机图</a>
+            <a href="/v.html" class="btn" id="verticalBtn" target="_blank">竖屏随机图</a>
+            <a href="/h.html" class="btn" id="horizontalBtn" target="_blank">横屏随机图</a>
         </div>
     </div>
 
@@ -165,15 +165,15 @@
             }
         }
     
-        document.getElementById('verticalBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            populateImages(true); // Repopulate with vertical images
-        });
+        //document.getElementById('verticalBtn').addEventListener('click', (e) => {
+            // e.preventDefault();
+            // populateImages(true); // Repopulate with vertical images
+        // });
     
-        document.getElementById('horizontalBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            populateImages(false); // Use horizontal images
-        });
+        // document.getElementById('horizontalBtn').addEventListener('click', (e) => {
+            // e.preventDefault();
+            // populateImages(false); // Use horizontal images
+        // });
     
         // Initialize images on page load
         initializeImages();
