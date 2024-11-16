@@ -87,6 +87,36 @@
             }
         }
     </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          // URL that returns a number
+          const url = "https://api-hrandom-pic.acofork.us.kg/";
+    
+          // Fetch the number from the URL
+          fetch(url)
+            .then(response => response.text()) // If response is plain text
+            .then(number => {
+              // Embed the number into the HTML
+              document.getElementById("api-h").textContent = number;
+            })
+            .catch(error => console.error("Error fetching number:", error));
+        });
+      </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              // URL that returns a number
+              const url = "https://api-vrandom-pic.acofork.us.kg/";
+        
+              // Fetch the number from the URL
+              fetch(url)
+                .then(response => response.text()) // If response is plain text
+                .then(number => {
+                  // Embed the number into the HTML
+                  document.getElementById("api-v").textContent = number;
+                })
+                .catch(error => console.error("Error fetching number:", error));
+            });
+          </script>
 <script nonce="3cbefd76-1130-40bc-86db-194d7484b740">try{(function(w,d){!function(j,k,l,m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5796";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const w of Object.entries(Object.entries(dataLayer).reduce(((x,y)=>({...x[1],...y[1]})),{})))zaraz.set(w[0],w[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const z=j.zaraz.q.shift();j[l].q.push(z)}r.defer=!0;for(const A of[localStorage,sessionStorage])Object.keys(A||{}).filter((C=>C.startsWith("_zaraz_"))).forEach((B=>{try{j[l]["z_"+B.slice(7)]=JSON.parse(A.getItem(B))}catch{j[l]["z_"+B.slice(7)]=A.getItem(B)}}));r.referrerPolicy="origin";r.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async bv=>new Promise((bw=>{if(bv){bv.e&&bv.e.forEach((bx=>{try{const by=d.querySelector("script[nonce]"),bz=by?.nonce||by?.getAttribute("nonce"),bA=d.createElement("script");bz&&(bA.nonce=bz);bA.innerHTML=bx;bA.onload=()=>{d.head.removeChild(bA)};d.head.appendChild(bA)}catch(bB){console.error(`Error executing script: ${bx}\n`,bB)}}));Promise.allSettled((bv.f||[]).map((bC=>fetch(bC[0],bC[1]))))}bw()}));zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script><script nonce="e5b59eb2-cbfa-4769-8c47-5007f1a10fa3">try{(function(w,d){!function(bj,bk,bl,bm){if(bj.zaraz)console.error("zaraz is loaded twice");else{bj[bl]=bj[bl]||{};bj[bl].executed=[];bj.zaraz={deferred:[],listeners:[]};bj.zaraz._v="5803";bj.zaraz._n="e5b59eb2-cbfa-4769-8c47-5007f1a10fa3";bj.zaraz.q=[];bj.zaraz._f=function(bn){return async function(){var bo=Array.prototype.slice.call(arguments);bj.zaraz.q.push({m:bn,a:bo})}};for(const bp of["track","set","debug"])bj.zaraz[bp]=bj.zaraz._f(bp);bj.zaraz.init=()=>{var bq=bk.getElementsByTagName(bm)[0],br=bk.createElement(bm),bs=bk.getElementsByTagName("title")[0];bs&&(bj[bl].t=bk.getElementsByTagName("title")[0].text);bj[bl].x=Math.random();bj[bl].w=bj.screen.width;bj[bl].h=bj.screen.height;bj[bl].j=bj.innerHeight;bj[bl].e=bj.innerWidth;bj[bl].l=bj.location.href;bj[bl].r=bk.referrer;bj[bl].k=bj.screen.colorDepth;bj[bl].n=bk.characterSet;bj[bl].o=(new Date).getTimezoneOffset();if(bj.dataLayer)for(const bw of Object.entries(Object.entries(dataLayer).reduce(((bx,by)=>({...bx[1],...by[1]})),{})))zaraz.set(bw[0],bw[1],{scope:"page"});bj[bl].q=[];for(;bj.zaraz.q.length;){const bz=bj.zaraz.q.shift();bj[bl].q.push(bz)}br.defer=!0;for(const bA of[localStorage,sessionStorage])Object.keys(bA||{}).filter((bC=>bC.startsWith("_zaraz_"))).forEach((bB=>{try{bj[bl]["z_"+bB.slice(7)]=JSON.parse(bA.getItem(bB))}catch{bj[bl]["z_"+bB.slice(7)]=bA.getItem(bB)}}));br.referrerPolicy="origin";br.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bj[bl])));bq.parentNode.insertBefore(br,bq)};["complete","interactive"].includes(bk.readyState)?zaraz.init():bj.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async bb=>new Promise((bc=>{if(bb){bb.e&&bb.e.forEach((bd=>{try{const be=d.querySelector("script[nonce]"),bf=be?.nonce||be?.getAttribute("nonce"),bg=d.createElement("script");bf&&(bg.nonce=bf);bg.innerHTML=bd;bg.onload=()=>{d.head.removeChild(bg)};d.head.appendChild(bg)}catch(bh){console.error(`Error executing script: ${bd}\n`,bh)}}));Promise.allSettled((bb.f||[]).map((bi=>fetch(bi[0],bi[1]))))}bc()}));zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head>
 <body>
     <div class="background">
@@ -97,7 +127,12 @@
 
     <div class="content">
         <h1>欢迎来到随机图站点</h1>
-        <p>这是一个 Onani 的随机图站点，使用 Cloudflare R2 服务。<br> 为了便于传输，使用了WEBP压缩技术。</small> <br> <b>特别鸣谢：锦瑟、瑞希</b>~</p>
+        <p>这是一个 AcoFork 的随机图站点，使用 Cloudflare R2 服务。<br> 为了便于传输，使用了WEBP压缩技术。</small> <br> <b>特别鸣谢：锦瑟、瑞希</b>~
+            <br>
+            <span id="api-v">获取中...</span> 张 (竖屏)
+            <br>
+            <span id="api-h">获取中...</span> 张 (横屏)
+            </p>
         <div>
             <a href="https://vrandom-pic.acofork.us.kg" class="btn">竖屏随机图</a>
             <a href="https://hrandom-pic.acofork.us.kg" class="btn">横屏随机图</a>
