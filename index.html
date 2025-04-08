@@ -110,8 +110,8 @@
             <span id="date">上次爬图：2025-04-06 8:01 UTC+8</span>
             </p>
         <div>
-            <a href="https://v-pic.2x.nz" class="btn" target="_blank">竖屏随机图</a>
-            <a href="https://h-pic.2x.nz" class="btn" target="_blank">横屏随机图</a>
+            <a href="api-v-acg-random-pic.acofork.dpdns.org" class="btn" target="_blank">竖屏随机图</a>
+            <a href="api-h-acg-random-pic.acofork.dpdns.org" class="btn" target="_blank">横屏随机图</a>
         </div>
     </div>
 
@@ -124,7 +124,7 @@
         // Function to create image elements
         function createImageElement(index) {
             const img = document.createElement('img');
-            img.src = `https://v-pic.2x.nz?img=${index}`;  // 使用索引作为查询参数
+            img.src = `https://api-v-acg-random-pic.acofork.dpdns.org?img=${index}`;  // 使用索引作为查询参数
             img.alt = "Random Image";
             return img;
         }
